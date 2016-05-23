@@ -3,15 +3,12 @@ package cn.lemon;
 import java.util.*;
 
 public class HuffmanCode {
-
-
-    public static void main(String[] args) {
-        String str = "Chongqing University of Posts and Telecommunications";
-        HuffmanCode huffmanCode = new HuffmanCode();
-        String encodeStr = huffmanCode.encode(str);
-        System.out.println("哈夫曼编码：" + encodeStr);
-    }
-
+    /**
+     * 对字符串进行编码
+     *
+     * @param originalStr
+     * @return
+     */
     public String encode(String originalStr) {
         if (originalStr == null || originalStr.isEmpty()) {
             return "";
@@ -36,8 +33,13 @@ public class HuffmanCode {
         return stringBuilder.toString();
     }
 
-
-    public Map<Character, String> buildEncodingInfo(List<Node> leafNodes) {
+    /**
+     * 对每个字符进行编码，返回一个map集合
+     *
+     * @param leafNodes
+     * @return
+     */
+    private Map<Character, String> buildEncodingInfo(List<Node> leafNodes) {
 
         Map<Character, String> codeWords = new HashMap<>();
 
