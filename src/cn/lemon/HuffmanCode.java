@@ -77,8 +77,21 @@ public class HuffmanCode {
 
         Map<Character, Integer> statistics = statistics(originStr.toCharArray());
 
+        Comparator<Node> comparator = new Comparator<Node>() {
+            @Override
+            public int compare(Node o1, Node o2) {
+                return o1.getWeight() - o2.getWeight();
+            }
+        };
+
         //通过有序队列，对头是最小的元素
-        PriorityQueue<Node> queue = new PriorityQueue<>();
+        PriorityQueue<Node> queue = new PriorityQueue<>(comparator);
+
+        for (Character c : statistics.keySet()) {
+            System.out.println("char : " + c + "  weight : " + statistics.get(c));
+        }
+        System.out.println();
+
         for (Character c : statistics.keySet()) {
 
             Node node = new Node();
@@ -138,10 +151,6 @@ public class HuffmanCode {
                 map.put(c, 1);
             }
         }
-        for (Character c : map.keySet()) {
-            System.out.println("char : " + c + "  weight : " + map.get(c));
-        }
-        System.out.println();
         return map;
     }
 }  

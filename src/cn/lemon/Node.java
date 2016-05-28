@@ -14,7 +14,7 @@ public class Node implements Comparable<Node> {
 
     @Override
     public int compareTo(Node o) {
-        return weight = o.getWeight();
+        return weight - o.getWeight();
     }
 
     public boolean isRoot() {
@@ -72,4 +72,5 @@ public class Node implements Comparable<Node> {
     public void setRightChild(Node rightChild) {
         this.rightChild = rightChild;
     }
+
 }
